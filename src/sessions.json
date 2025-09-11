@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2024-01-15",
+    "contenderOne": "Player A",
+    "contenderTwo": "Player B",
+    "contenderOneWon": true
+  },
+  {
+    "date": "2024-01-20",
+    "contenderOne": "Player A",
+    "contenderTwo": "Player B",
+    "contenderOneWon": false
+  },
+  {
+    "date": "2024-01-21",
+    "contenderOne": "Player A",
+    "contenderTwo": "Player B",
+    "contenderOneWon": true
+  },
+  {
+    "date": "2024-01-22",
+    "contenderOne": "Player A",
+    "contenderTwo": "Player B",
+    "contenderOneWon": false
+  },
+  {
+    "date": "2024-01-24",
+    "contenderOne": "Player A",
+    "contenderTwo": "Player B",
+    "contenderOneWon": true
+  },
+  {
+    "date": "2024-01-25",
+    "contenderOne": "Player A",
+    "contenderTwo": "Player B",
+    "contenderOneWon": false
+  }
+]
