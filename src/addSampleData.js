@@ -1,7 +1,5 @@
-import { collection, addDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
-// Sample sessions data
 const sampleSessions = [
   {
     date: "2024-01-25",
@@ -17,7 +15,6 @@ const sampleSessions = [
   },
 ];
 
-// Sample decks data
 const sampleDecks = [
   {
     name: "Red Deck Wins",
@@ -63,17 +60,15 @@ const sampleDecks = [
 
 export const addSampleData = async () => {
   try {
-    // Add sessions
     console.log("Adding sample sessions...");
     for (const session of sampleSessions) {
-      await addDoc(collection(db, "sessions"), session);
+      await db.collection("sessions").add(session);
     }
     console.log("Sessions added successfully!");
 
-    // Add decks
     console.log("Adding sample decks...");
     for (const deck of sampleDecks) {
-      await addDoc(collection(db, "decks"), deck);
+      await db.collection("decks").add(deck);
     }
     console.log("Decks added successfully!");
 
@@ -83,5 +78,4 @@ export const addSampleData = async () => {
   }
 };
 
-// Uncomment the line below to run the script
-// addSampleData();
+addSampleData();
