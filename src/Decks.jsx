@@ -1,31 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { db } from "./firebase";
+import React, { useState } from "react";
+import { decksData } from "./staticData";
 
 function Decks() {
-  const [decks, setDecks] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchDecks = async () => {
-      try {
-        const querySnapshot = await db
-          .collection("decks")
-          .orderBy("name", "asc")
-          .get();
-        const decksData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setDecks(decksData);
-      } catch (error) {
-        console.error("Error fetching decks:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDecks();
-  }, []);
+  const sortedDecks = [...decksData].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const [decks] = useState(sortedDecks);
 
   const getColorIcon = (color) => {
     const colorMap = {
@@ -50,17 +30,6 @@ function Decks() {
     };
     return colorMap[color] || "text-gray-400";
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-slate-700 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-300">Loading decks...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-slate-700">

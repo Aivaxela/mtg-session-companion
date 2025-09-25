@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Nav from "./Nav";
-import Sessions from "./Sessions";
+import Sessions from "./Sessions/Sessions";
 import Decks from "./Decks";
 
 function App() {
